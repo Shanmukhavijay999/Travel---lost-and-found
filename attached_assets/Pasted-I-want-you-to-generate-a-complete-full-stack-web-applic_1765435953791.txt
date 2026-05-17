@@ -1,0 +1,444 @@
+I want you to generate a complete full-stack web application called:
+
+Travel Lost & Found Portal
+
+A platform that helps travelers recover items lost during bus, train, auto, cab, or metro journeys.
+
+The project must be built with:
+
+Frontend Requirements
+
+React JS (JavaScript only)
+
+.jsx component files
+
+.css styling (no Tailwind)
+
+React Router (v6+)
+
+Axios for API calls
+
+LocalStorage OR Firebase OR Supabase (choose the best for simplicity)
+
+Complex, clean, modern, professional UI
+→ smooth cards
+→ gradients
+→ rounded corners
+→ soft shadows
+→ animated transitions
+
+Backend/Data Requirements
+
+Use either Supabase or Firebase (your choice) to implement:
+
+Authentication (Email + Password)
+
+Database for users, drivers, requests, messages, found items
+
+Real-time chat (if supported by backend)
+
+Notification triggers (message notifications, found-item updates)
+
+🔥 PROJECT GOAL
+
+A system where:
+
+A Passenger loses an item while traveling.
+
+They select transport mode → route/location → enter vehicle details → describe lost item.
+
+The Driver receives the request in their dashboard.
+
+If the driver finds something, they upload photos + description.
+
+Passenger gets notified.
+
+Passenger can view driver contact details (after item is marked found).
+
+Passenger and Driver can chat in real time via Conversations Center.
+
+Both can arrange handover of item.
+
+🧩 CORE PAGES TO GENERATE
+1. Home Page (Home.jsx + Home.css)
+
+Hero section with gradient background
+
+“Search Lost Item” button
+
+Transport categories (bus, train, auto, taxi, metro)
+
+Footer + fixed navbar
+
+2. About Page
+
+Mission, how it solves the problem, contact info.
+
+3. Login / Signup
+
+Email/password
+
+Role selection: Passenger or Driver
+
+Auth stored in LocalStorage or backend
+
+4. Passenger Dashboard
+
+Shows:
+
+Lost item requests sent
+
+Status updates
+
+Matched drivers
+
+Notifications
+
+Link to Conversations Center
+
+5. Driver Dashboard
+
+Shows:
+
+Incoming lost-item requests
+
+Buttons to mark an item Found / Not Found
+
+Upload photo of found item
+
+Notifications
+
+Link to Conversations Center
+
+6. Categories Page
+
+Clickable icons: Bus, Train, Auto, Cab, Metro
+
+7. Location Selection Page
+
+Inputs:
+
+From location
+
+To location
+
+Date of travel
+
+8. Vehicle Search Page
+
+Inputs:
+
+Vehicle number (KA-05 AB 1234)
+
+Time of travel
+
+Seat number (optional)
+
+Lost item description
+
+“Send Request to Driver”
+
+9. Driver Found Items Page
+
+Driver uploads:
+
+Item photo
+
+Found location
+
+Description
+
+Passenger views:
+
+Driver name
+
+Vehicle details
+
+Found item details
+
+10. Chat System
+Components:
+
+ChatWindow.jsx
+
+MessageBubble.jsx
+
+ChatSidebar.jsx
+
+Features:
+
+Real-time chat (if backend supports)
+
+Seen/unseen status
+
+Image sending optional
+
+11. Conversations Center
+
+A unified page for both Passenger and Driver.
+
+Page Name:
+
+Conversations Center
+
+File Structure:
+
+ConversationsCenter.jsx
+
+ConversationsCenter.css
+
+Features:
+
+Shows all conversation threads
+
+Shows user profile image, name, vehicle number, request ID
+
+“Open Chat” button → /chat/:requestId
+
+Works for both user types
+
+🔧 DATABASE STRUCTURE (REQUIRED)
+users
+
+id
+
+name
+
+email
+
+passwordHash
+
+role (passenger/driver)
+
+phone
+
+created_at
+
+requests
+
+id
+
+user_id
+
+driver_id (nullable)
+
+mode_of_transport
+
+from_location
+
+to_location
+
+vehicle_number
+
+item_description
+
+status (“pending, checking, found, not_found”)
+
+created_at
+
+found_items
+
+id
+
+request_id
+
+driver_id
+
+photo_url
+
+description
+
+found_time
+
+contact_reveal (true/false)
+
+messages
+
+id
+
+request_id
+
+sender_id
+
+receiver_id
+
+message
+
+timestamp
+
+notifications
+
+id
+
+user_id
+
+type (“item_found”, “new_message”, etc.)
+
+message
+
+seen
+
+created_at
+
+🚨 NOTIFICATION SYSTEM (MANDATORY)
+
+Generate:
+
+For Passenger:
+
+Item found notification
+
+New message notification
+
+Driver contact unlocked notification
+
+For Driver:
+
+New lost-item request notification
+
+New chat message notification
+
+Use:
+
+Supabase real-time listeners OR
+
+Polling (if LocalStorage mock backend)
+
+📌 ACCESS CONTROL (IMPORTANT)
+
+Passenger sees driver contact details ONLY IF:
+
+Driver marked item as FOUND
+
+Driver toggles contact_reveal = true
+
+Driver sees passenger details only AFTER:
+
+Passenger sends a request
+
+Conversation starts or item marked found
+
+🎨 UI REQUIREMENTS
+
+Use CSS files for all components
+
+Use modern UI patterns:
+
+Glassmorphism
+
+Neomorphic cards
+
+Gradient backgrounds
+
+Rounded corners (radius 16px)
+
+Soft shadows
+
+Smooth hover transitions
+
+Hero sections must be clean and professional
+
+Use icons from React Icons or PNGs
+
+🗂 FOLDER STRUCTURE (MANDATORY)
+src/
+  components/
+    Navbar.jsx
+    Footer.jsx
+    ChatWindow.jsx
+    MessageBubble.jsx
+    ChatSidebar.jsx
+  pages/
+    Home.jsx
+    About.jsx
+    Login.jsx
+    Signup.jsx
+    PassengerDashboard.jsx
+    DriverDashboard.jsx
+    Categories.jsx
+    Location.jsx
+    VehicleSearch.jsx
+    DriverFoundItems.jsx
+    ConversationsCenter.jsx
+  services/
+    api.js
+    auth.js
+    notifications.js
+  assets/
+  styles/
+    Home.css
+    About.css
+    Login.css
+    Chat.css
+    ConversationsCenter.css
+
+🛠 WHAT YOU MUST GENERATE
+
+For this entire app, generate:
+
+✔ Complete folder structure
+✔ Every JSX file
+✔ All CSS files
+✔ All routes
+✔ All components
+✔ All backend functions
+✔ All API endpoints
+✔ All database tables
+✔ Notification logic
+✔ Chat logic
+✔ Real-time message flow
+✔ Professional UI
+✔ Explanations for all parts
+
+🏆 IMPORTANT — SUCCESS CRITERIA FOR WINNING UI HACKATHON
+
+System must include:
+
+1. A clear real-world problem
+
+Lost items during travel.
+
+2. Strong tech stack usage
+
+React + backend + auth + chat + notifications.
+
+3. Smooth UI/UX
+
+Modern, professional, animated.
+
+4. Practical workflow
+
+Passenger → Request → Driver → Found → Notify → Reveal Contact → Chat → Meet.
+
+5. Future scalability
+
+The system should support:
+
+AI-based image identification
+
+QR-based vehicle scanning
+
+GPS integration
+
+WhatsApp integration
+(add placeholders for these features)
+
+🧠 FUTURE ENHANCEMENTS TO MENTION
+
+Mention these in the solution as optional-but-planned features:
+
+AI to match item images automatically
+
+QR code scanning for vehicle validation
+
+GPS-based route matching
+
+OTP-based item pickup verification
+
+Voice assistance for disabled users
+
+WhatsApp message integration
+
+Cloudflare CDN for image optimization
+
+Include placeholders in the architecture so judges see scalability.

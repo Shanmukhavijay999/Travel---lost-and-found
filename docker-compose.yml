@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    container_name: fullstack_app
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/app        # mounts your code so edits reflect live (dev mode)
+      - /app/node_modules
+    command: npm run dev
